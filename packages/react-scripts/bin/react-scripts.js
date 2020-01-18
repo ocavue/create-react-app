@@ -88,7 +88,7 @@ program
 program
   .command('build')
   .description('Builds the app for production to the `build` folder.')
-  .option('--mode', 'Specify env mode', 'production')
+  .option('--mode <mode>', 'Specify env mode', 'production')
   .action(function(cmd) {
     const opts = cmd.opts();
     process.env.BABEL_ENV = opts.mode;
