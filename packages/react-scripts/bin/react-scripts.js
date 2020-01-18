@@ -88,7 +88,11 @@ program
 program
   .command('build')
   .description('Builds the app for production to the `build` folder.')
-  .action(function() {
+  .option('--mode', 'Specify env mode', 'production')
+  .action(function(cmd) {
+    const opts = cmd.opts();
+    process.env.BABEL_ENV = opts.mode;
+    process.env.NODE_ENV = opts.mode;
     execScript('build', []);
   });
 program
